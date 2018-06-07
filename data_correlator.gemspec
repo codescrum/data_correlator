@@ -1,13 +1,13 @@
 # Ensure we require the local version and not one we might have installed already
 require File.join([File.dirname(__FILE__),'lib','data_correlator','version.rb'])
-spec = Gem::Specification.new do |s| 
+spec = Gem::Specification.new do |s|
   s.name = 'data_correlator'
   s.version = DataCorrelator::VERSION
-  s.author = 'Your Name Here'
-  s.email = 'your@email.address.com'
-  s.homepage = 'http://your.website.com'
+  s.author = 'Miguel Diaz'
+  s.email = 'mdiaz.git+thor@codescrum.com'
+  s.homepage = 'https://codescrum.com'
   s.platform = Gem::Platform::RUBY
-  s.summary = 'A description of your project'
+  s.summary = 'Data correlator is an utility built to match data from different sources using custom criteria. Its main use is for data recovery procedures, which need matching information from multiple sources to uncover the true data.'
   s.files = `git ls-files`.split("
 ")
   s.require_paths << 'lib'
