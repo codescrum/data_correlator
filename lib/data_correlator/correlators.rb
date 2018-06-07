@@ -1,9 +1,10 @@
-# This module provides
+require 'active_support/core_ext/module'
+
 module DataCorrelator
 
-  module Correlations
+  module Correlators
 
-    extend ActiveSupport::Concern
+    extend ::ActiveSupport::Concern
 
     def quick_correlation_and_disambiguation_mapping_with_reporters(set_a, set_b, reporter_a, reporter_b, *strategies, &block)
       reporting_wrap(set_a, set_b.map(&reporter_b)) do
