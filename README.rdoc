@@ -1,6 +1,11 @@
 = data_correlator
 
-Describe your project here
+Data correlator is an utility built to match data from different sources using custom criteria.
+Its main use is for data recovery procedures, which need matching information from multiple
+sources to uncover the true data.
+
+In development, you need to use `bundle exec bin/data_correlator` to run your app
+At install-time, RubyGems will make sure lib, etc. are in the load path.
+
 
 :include:data_correlator.rdoc
-
