@@ -1,0 +1,5 @@
+= data_correlator
+
+Generate this with
+    data_correlator rdoc
+After you have described your command line interface
