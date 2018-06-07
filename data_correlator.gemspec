@@ -17,6 +17,7 @@ spec = Gem::Specification.new do |s|
   s.bindir = 'bin'
   s.executables << 'data_correlator'
   s.add_development_dependency('rake')
+  s.add_development_dependency('rspec','3.7.0')
   s.add_development_dependency('rdoc')
   s.add_development_dependency('aruba')
   s.add_runtime_dependency('gli','2.17.1')
