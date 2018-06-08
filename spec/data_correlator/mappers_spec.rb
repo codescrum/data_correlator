@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe DataCorrelator::Correlators do
+describe DataCorrelator::Mappers do
 
   before do
-    TestClass.send :include, DataCorrelator::Correlators
+    TestClass.send :include, DataCorrelator::Mappers
   end
 
   let(:h){ TestClass.new } # A helper class to house the mixin
