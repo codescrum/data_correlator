@@ -1,7 +1,6 @@
 # Provides Virtus models with some introspection methods
 # commonly needed when using correlation methods with models
 module DataCorrelator
-
   module Extensions
     module Virtus
       extend ActiveSupport::Concern
@@ -30,7 +29,7 @@ module DataCorrelator
         # return the attributes that only represent the isolated virtus object itself
         # strip any `id`, `*_id` or `*_ids` or embedded collection or single relations
         def simple_attributes
-        self.attributes.slice(*self.class.simple_attributes)
+          self.attributes.slice(*self.class.simple_attributes)
         end
 
         # compute and memoize the relational attributes
@@ -54,14 +53,4 @@ module DataCorrelator
       end
     end
   end
-end
-
-#
-module RecoveryInfo::Mixins::VirtusSimpleAttributes
-  extend ActiveSupport::Concern
-
-
-
-  class_methods do
-
 end
