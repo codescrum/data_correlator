@@ -24,7 +24,6 @@ module DataCorrelator
             attribute.name =~ /(csv_row_number|errors)/ # no `csv_row_number` or `errors` fields
           end.map(&:name)
         end
-        end
 
         # return the attributes that only represent the isolated virtus object itself
         # strip any `id`, `*_id` or `*_ids` or embedded collection or single relations
@@ -51,6 +50,7 @@ module DataCorrelator
       def relational_attributes
         self.attributes.slice(*self.class.relational_attributes)
       end
+
     end
   end
 end
