@@ -4,7 +4,7 @@ module DataCorrelator
   module Integrations
     module Virtus
       extend ActiveSupport::Concern
-      include RecoveryInfo::Helpers::Correlations
+      include ::DataCorrelator::Mappers
 
       # Applies #virtus_patch to an array of objects, based on another array
       # The objects patch themselves whenever the passed in block evaluates to true
