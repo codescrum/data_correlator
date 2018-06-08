@@ -3,7 +3,6 @@ module DataCorrelator
 
   module Integrations
     module Virtus
-      extend ActiveSupport::Concern
       include ::DataCorrelator::Mappers
 
       # Applies #virtus_patch to an array of objects, based on another array

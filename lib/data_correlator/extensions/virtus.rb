@@ -3,23 +3,24 @@
 module DataCorrelator
   module Extensions
     module Virtus
-      extend ActiveSupport::Concern
 
-      included do
-        cattr_accessor :relational_attribute_names
-        cattr_accessor :simple_attribute_names
+      def self.included(base)
+        base.extend ClassMethods
+        base.class_eval do
+          cattr_accessor :relational_attribute_names
+          cattr_accessor :simple_attribute_names
+        end
       end
 
-      class_methods do
-
+      module ClassMethods
         # compute and memoize the simple attributes
         # TODO: check out other information on the "attribute set",
         # perhaps it can be done even simpler.
         def simple_attributes
           self.simple_attribute_names ||= attribute_set.reject do |attribute| #read: 'reject'
             # NOT a collection, or an embedded type
-            attribute.is_a?(Virtus::Attribute::Collection) ||
-            attribute.is_a?(Virtus::Attribute::EmbeddedValue) ||
+            attribute.is_a?(::Virtus::Attribute::Collection) ||
+            attribute.is_a?(::Virtus::Attribute::EmbeddedValue) ||
             attribute.name =~ /(^id|_ids?)$/ ||
             attribute.name =~ /(csv_row_number|errors)/ # no `csv_row_number` or `errors` fields
           end.map(&:name)
@@ -37,8 +38,8 @@ module DataCorrelator
         def relational_attributes
           self.relational_attribute_names ||= attribute_set.select do |attribute| #read: 'reject'
             # NOT a collection, or an embedded type
-            attribute.is_a?(Virtus::Attribute::Collection) ||
-            attribute.is_a?(Virtus::Attribute::EmbeddedValue) ||
+            attribute.is_a?(::Virtus::Attribute::Collection) ||
+            attribute.is_a?(::Virtus::Attribute::EmbeddedValue) ||
             attribute.name =~ /(^id|_ids?)$/ ||
             attribute.name !~ /errors/     # no errors please
           end.map(&:name)

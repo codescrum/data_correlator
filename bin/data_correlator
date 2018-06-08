@@ -34,6 +34,8 @@ command :correlate do |c|
 
     # If you have any errors, just raise them
     # raise "that command made no sense"
+    #
+    puts DataCorrelator::Extensions::Virtus
 
     puts "correlate command ran"
   end
