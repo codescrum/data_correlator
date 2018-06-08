@@ -18,10 +18,10 @@ spec = Gem::Specification.new do |s|
   s.executables << 'data_correlator'
   s.add_development_dependency('rake')
   s.add_development_dependency('rspec','3.7.0')
-  s.add_development_dependency('spirit_hands')
+  s.add_development_dependency('spirit_hands','2.1.5')
   s.add_development_dependency('rdoc')
   s.add_development_dependency('aruba')
   s.add_runtime_dependency('gli','2.17.1')
-  s.add_runtime_dependency('activesupport','5.2.0')
-  s.add_runtime_dependency('virtus','1.0.5')
+  s.add_runtime_dependency('activesupport')
+  s.add_runtime_dependency('virtus')
 end
