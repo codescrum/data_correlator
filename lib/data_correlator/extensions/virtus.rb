@@ -26,12 +26,6 @@ module DataCorrelator
           end.map(&:name)
         end
 
-        # return the attributes that only represent the isolated virtus object itself
-        # strip any `id`, `*_id` or `*_ids` or embedded collection or single relations
-        def simple_attributes
-          self.attributes.slice(*self.class.simple_attributes)
-        end
-
         # compute and memoize the relational attributes
         # TODO: check out other information on the "attribute set",
         # perhaps it can be done even simpler.
@@ -50,6 +44,12 @@ module DataCorrelator
       # strip any `id`, `*_id` or `*_ids` or embedded collection or single relations
       def relational_attributes
         self.attributes.slice(*self.class.relational_attributes)
+      end
+
+      # return the attributes that only represent the isolated virtus object itself
+      # strip any `id`, `*_id` or `*_ids` or embedded collection or single relations
+      def simple_attributes
+        self.attributes.slice(*self.class.simple_attributes)
       end
 
     end
