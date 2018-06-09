@@ -34,7 +34,7 @@ module DataCorrelator
       correlation_strategy_equivalent = lambda{|a,bs| bs.select{|b| correlation_strategy.call(a,b)}}
 
       # Put it back in place, where it was, now converted
-      strategies = strategies.prepend correlation_strategy_equivalent
+      strategies = strategies.unshift correlation_strategy_equivalent
       default_stop_condition = lambda{|a,bs| bs.count > 1} # unique element condition
 
       if stop_condition.respond_to? :call
