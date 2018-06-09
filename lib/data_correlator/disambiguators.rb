@@ -18,11 +18,11 @@ module DataCorrelator
       lambda{|a,bs| [bs.last] }
     end
 
-    def self.pick_last_same_created_at_with_seconds_tolerance
+    def self.pick_last_same_created_at_with_minute_tolerance
       lambda{|a,bs| [bs.select{|b| a.created_at.change(sec: 0) == b.created_at.change(sec: 0)}.sort{|x,y| x.created_at <=> y.created_at}.last] }
     end
 
-    def self.pick_same_created_at_with_seconds_tolerance
+    def self.pick_same_created_at_with_minute_tolerance
       lambda{|a,bs| bs.select{|b| b.created_at.change(sec: 0) == a.created_at.change(sec: 0)} }
     end
   end

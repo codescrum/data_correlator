@@ -31,13 +31,13 @@ module DataCorrelator
 
     # correlates using the created_at truncated at 0 secs to avoid accuracy problems
     # when taking data from different sources and precision
-    def self.same_created_at_with_seconds_tolerance
+    def self.same_created_at_with_minute_tolerance
       lambda{|a,b| a.created_at.change(sec: 0) == b.created_at.change(sec: 0)}
     end
 
     # correlates using the updated_at truncated at 0 secs to avoid accuracy problems
     # when taking data from different sources and precision
-    def self.same_updated_at
+    def self.same_updated_at_with_minute_tolerance
       lambda{|a,b| a.updated_at.change(sec: 0) == b.updated_at.change(sec: 0)}
     end
 
